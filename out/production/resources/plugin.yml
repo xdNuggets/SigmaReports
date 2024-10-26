@@ -1,0 +1,4 @@
+name: SigmaReports
+version: '1.0'
+main: me.josh.reportsystem.PluginMain
+description: A report system meant for minigame servers

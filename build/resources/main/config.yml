@@ -1,0 +1,21 @@
+database:
+  host: localhost
+  name: reportsystem
+  port: 3306
+  username: root
+  password:
+
+gui:
+  report_reasons:
+    # https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+
+    - FEATHER:
+        name: FlyHacks
+        description: using any sort of fly exploit
+
+    - IRON_SWORD:
+        name: KillAura
+        description: using a program to fight for them
+
+reports:
+  timezone: UTC
