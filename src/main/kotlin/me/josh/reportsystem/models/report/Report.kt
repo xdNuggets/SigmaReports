@@ -12,12 +12,14 @@ import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 
-class Report(val reporter: Player, val reportedPlayer: Player, val reason: String) {
+class Report(val type: ReportType, val reporter: Player, val reportedPlayer: Player, val reason: String, val date: Long, val id: String) {
 
-    val type: ReportType = ReportType.PENDING
-    val date: Long = System.currentTimeMillis()
+    constructor(
+        reporter: Player, reportedPlayer: Player, reason: String
+    ) : this(ReportType.PENDING, reporter, reportedPlayer, reason, System.currentTimeMillis(), UUID.randomUUID().toString())
+
     val reportManager: ReportManager = PluginMain.INSTANCE.reportManager
-    val id = UUID.randomUUID().toString().substring(0, 7)
+
 
     fun accept() {
 
