@@ -1,5 +1,6 @@
 package me.josh.reportsystem.util
 
+import net.kyori.adventure.text.Component
 import org.bukkit.ChatColor
 import org.jetbrains.annotations.NotNull
 
@@ -49,6 +50,12 @@ class ColorUtil {
         @NotNull
         fun prefixed(@NotNull prefix: String, @NotNull message: String): String {
             return color("$prefix $message")
+        }
+
+
+        @NotNull
+        fun component(text: String) : Component {
+            return Component.text(color(text))
         }
     }
 }

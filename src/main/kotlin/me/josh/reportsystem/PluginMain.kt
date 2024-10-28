@@ -1,11 +1,16 @@
 package me.josh.reportsystem
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
+import me.josh.reportsystem.commands.ClearReportsCmd
+import me.josh.reportsystem.commands.ReportCmd
+import me.josh.reportsystem.commands.ReportsCmd
+import me.josh.reportsystem.gui.impl.AllReportsMenu
 import me.josh.reportsystem.listeners.JoinListener
+import me.josh.reportsystem.listeners.MenuListener
 import me.josh.reportsystem.managers.SQLManager
 import me.josh.reportsystem.managers.player.PlayerManager
 import me.josh.reportsystem.managers.report.ReportManager
-import org.bukkit.command.CommandSender
+
 import org.bukkit.plugin.java.JavaPlugin
 
 class PluginMain : JavaPlugin() {
@@ -26,36 +31,50 @@ class PluginMain : JavaPlugin() {
         saveDefaultConfig()
 
         INSTANCE = this
-        BukkitCommandManager.create(this)
-
+        val commandManager = BukkitCommandManager.create(this)
 
         // Initialize managers
         try {
             sqlManager = SQLManager()
             sqlManager.connect()
+
+            playerManager = PlayerManager()
+            reportManager = ReportManager()
+
+            if (sqlManager.isConnected()) {
+                println("SQL is connected. Adding managers")
+                // Add Managers
+                sqlManager.addManager(playerManager)
+                sqlManager.addManager(reportManager)
+
+                // Create all tables
+                sqlManager.createTables()
+            } else {
+                println("Could not connect to the MySQL database. Tables will not be created.")
+            }
         } catch (e: Exception) {
-            println("Failed to intialize connection to MySQL Database")
+            println("Failed to initialize connection to MySQL Database")
             e.printStackTrace()
         }
 
-        playerManager = PlayerManager()
-        reportManager = ReportManager()
-        // Add Managers
-        sqlManager.addManager(playerManager)
-        sqlManager.addManager(reportManager)
+        commandManager.registerCommand(ReportCmd())
+        commandManager.registerCommand(ClearReportsCmd())
+        commandManager.registerCommand(ReportsCmd())
 
-        // Create all tables
-        sqlManager.createTables()
+
 
 
         // Register Listeners
         server.pluginManager.registerEvents(JoinListener(), this)
+        server.pluginManager.registerEvents(MenuListener(), this)
     }
 
 
 
     override fun onDisable() {
-        sqlManager.disconnect();
+        if (sqlManager.isConnected()) {
+            sqlManager.disconnect()
+        }
     }
 
 

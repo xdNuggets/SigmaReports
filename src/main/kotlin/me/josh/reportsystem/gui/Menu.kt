@@ -2,8 +2,10 @@ package me.josh.reportsystem.gui
 
 import dev.triumphteam.gui.builder.item.ItemBuilder
 import dev.triumphteam.gui.guis.BaseGui
+import dev.triumphteam.gui.guis.PaginatedGui
 import me.josh.reportsystem.PluginMain
 import me.josh.reportsystem.managers.report.ReportManager
+import me.josh.reportsystem.util.ColorUtil
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -26,7 +28,16 @@ abstract class Menu(val player: Player) {
 
 
     fun open() {
+        setItems()
+        gui.setDefaultClickAction {
+            event -> event.isCancelled = true
+        }
         gui.open(player)
+    }
+
+    fun open(p: Player) {
+        setItems()
+        gui.open(p)
     }
 
     open fun setItems() {}
@@ -41,7 +52,7 @@ abstract class Menu(val player: Player) {
             }
         }
 
-        for (i in size - 9 .. size) {
+        for (i in size - 9 until size) {
             if (gui.inventory.getItem(i) == null) {
                 gui.setItem(i, FILLER_GLASS)
             }
@@ -54,6 +65,29 @@ abstract class Menu(val player: Player) {
                 gui.setItem(i + 8, FILLER_GLASS)
             }
         }
+    }
+
+    fun addPaginatedItems() {
+        if(gui !is PaginatedGui) return
+
+        val previousPageItem = ItemBuilder.from(Material.WOOD_BUTTON).name(ColorUtil.component("&aPrevious Page"))
+            .asGuiItem {
+                _ -> (gui as PaginatedGui).previous()
+            }
+
+        val nextPageItem = ItemBuilder.from(Material.WOOD_BUTTON).name(ColorUtil.component("&aNext Page"))
+            .asGuiItem {
+                    _ -> (gui as PaginatedGui).next()
+            }
+
+        val closeItem = ItemBuilder.from(Material.BARRIER).name(ColorUtil.component("&cClose"))
+            .asGuiItem {
+                _ -> gui.close(player)
+            }
+
+        gui.setItem(48, previousPageItem)
+        gui.setItem(49, closeItem)
+        gui.setItem(50, nextPageItem)
     }
 
 

@@ -10,6 +10,7 @@ import me.josh.reportsystem.util.ColorUtil
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.entity.Player
+import org.bukkit.inventory.ItemFlag
 
 class ReportReasonMenu(player: Player, private val target: Player) : Menu(player) {
 
@@ -31,7 +32,9 @@ class ReportReasonMenu(player: Player, private val target: Player) : Menu(player
                     val item = ItemBuilder.from(Material.valueOf(key))
                         .name(Component.text(ColorUtil.color("&e${name}")))
                         .lore(getItemDescription(description))
-                        .asGuiItem { _ ->
+                        .flags(ItemFlag.HIDE_ATTRIBUTES)
+                        .asGuiItem { event ->
+                            event.isCancelled = true
                             val report = Report(player, target, name)
                             reportManager.createReport(report)
                             player.sendMessage(ColorUtil.color("&aSuccessfully reported &e${target.name}&a for &e${name}"))
@@ -46,7 +49,7 @@ class ReportReasonMenu(player: Player, private val target: Player) : Menu(player
     private fun getItemDescription(description: String): List<Component> {
         return listOf<Component>(
             Component.text(
-                ColorUtil.color("&8${description}")),
+                ColorUtil.color("&8Report them for ${description}")),
             Component.text(""),
             Component.text(""),
             Component.text(ColorUtil.color("&7(Click to report)"))
