@@ -1,6 +1,7 @@
 package me.josh.reportsystem.gui.impl
 
 import dev.triumphteam.gui.builder.item.ItemBuilder
+import dev.triumphteam.gui.components.GuiAction
 import dev.triumphteam.gui.guis.BaseGui
 import dev.triumphteam.gui.guis.Gui
 import dev.triumphteam.gui.guis.GuiItem
@@ -12,13 +13,14 @@ import me.josh.reportsystem.util.ColorUtil
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.entity.Player
+import org.bukkit.event.inventory.InventoryClickEvent
 
 class AllReportsMenu(player: Player) : Menu(player) {
 
     private val filters = listOf(ReportsFilterType.PENDING, ReportsFilterType.ALL, ReportsFilterType.ACCEPTED, ReportsFilterType.DENIED, ReportsFilterType.NEWEST)
     private var filterIndex = 0
 
-    override var gui: BaseGui = Gui.paginated().title(Component.text("Reports (${filters[filterIndex].name})"))
+    override var gui: BaseGui = Gui.paginated().title(ColorUtil.component("&fReports (&7${filters[filterIndex].name}&f)"))
         .rows(6)
         .create()
 
@@ -46,16 +48,21 @@ class AllReportsMenu(player: Player) : Menu(player) {
         gui.setItem(53, filterBookItem)
     }
 
+
+    private val filterBookAction = GuiAction<InventoryClickEvent> { _ ->
+        run {
+            if(filterIndex == filters.size - 1) filterIndex = 0 else filterIndex++
+            updateFilterBook()
+            updateGUI()
+            player.sendMessage(ColorUtil.color("&aSet filter to &e${filters[filterIndex]}"))
+        }
+    }
+
     private var filterItemName = ColorUtil.component("&7Current Filter: &e${filters[filterIndex]}")
     private var filterBookItem = ItemBuilder.from(Material.BOOK_AND_QUILL)
         .name(filterItemName)
         .lore(getFilterBookLore())
-        .asGuiItem {
-            if(filterIndex == filters.size - 1) filterIndex = 0 else filterIndex++
-            updateFilterBook()
-            updateGUI()
-            player.sendMessage("Selected filter: ${filters[filterIndex].name}. Updating gui")
-        }
+        .asGuiItem(filterBookAction)
 
 
     private fun getFilterBookLore(): List<Component> {
@@ -98,6 +105,12 @@ class AllReportsMenu(player: Player) : Menu(player) {
 
     private fun updateFilterBook() {
         filterItemName = ColorUtil.component("&7Current Filter: &e${filters[filterIndex]}")
+        filterBookItem = ItemBuilder.from(Material.BOOK_AND_QUILL)
+            .name(filterItemName)
+            .lore(getFilterBookLore())
+            .asGuiItem(filterBookAction)
+        gui.updateItem(53, filterBookItem)
+        gui.update()
     }
 
     private fun updateGUI() {
@@ -107,6 +120,7 @@ class AllReportsMenu(player: Player) : Menu(player) {
         for(report in reports) {
             gui.addItem(createReportBook(report))
         }
+        gui.updateTitle(ColorUtil.color("&fReports (&7${filters[filterIndex].name}&f)"))
         gui.update()
 
     }
