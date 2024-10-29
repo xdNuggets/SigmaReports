@@ -36,7 +36,7 @@ class ReportManager: IManager {
     fun getReports(filter: ReportsFilterType) : List<Report> {
         val query: String = when(filter) {
             ReportsFilterType.ALL -> "SELECT * FROM reports"
-            ReportsFilterType.NEWEST -> "SELECT * FROM reports"
+            ReportsFilterType.NEWEST -> "SELECT * FROM reports ORDER BY date DESC"
             ReportsFilterType.PENDING -> "SELECT * FROM reports WHERE type='PENDING'"
             ReportsFilterType.ACCEPTED -> "SELECT * FROM reports WHERE type='ACCEPTED'"
             ReportsFilterType.DENIED -> "SELECT * FROM reports WHERE type='DENIED'"

@@ -37,7 +37,9 @@ class ReportReasonMenu(player: Player, private val target: Player) : Menu(player
                             event.isCancelled = true
                             val report = Report(player, target, name)
                             reportManager.createReport(report)
+                            gui.close(player)
                             player.sendMessage(ColorUtil.color("&aSuccessfully reported &e${target.name}&a for &e${name}"))
+
                         }
 
                     gui.addItem(item)

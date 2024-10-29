@@ -1,6 +1,6 @@
 package me.josh.reportsystem.models.report
 
-import jdk.jfr.internal.handlers.EventHandler.timestamp
+
 import me.josh.reportsystem.PluginMain
 import me.josh.reportsystem.managers.report.ReportManager
 import org.bukkit.entity.Player
@@ -16,7 +16,7 @@ class Report(val type: ReportType, val reporter: Player, val reportedPlayer: Pla
 
     constructor(
         reporter: Player, reportedPlayer: Player, reason: String
-    ) : this(ReportType.PENDING, reporter, reportedPlayer, reason, System.currentTimeMillis(), UUID.randomUUID().toString())
+    ) : this(ReportType.PENDING, reporter, reportedPlayer, reason, System.currentTimeMillis(), UUID.randomUUID().toString().substring(0,7))
 
     val reportManager: ReportManager = PluginMain.INSTANCE.reportManager
 
