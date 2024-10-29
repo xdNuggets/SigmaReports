@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SigmaReports:jar">
+    <output-path>$USER_HOME$/Desktop/Server/plugins</output-path>
+    <root id="archive" name="SigmaReports.jar">
+      <element id="module-output" name="SigmaReports.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-serializer-gson/4.17.0/1b2cf73c8794287db202b2ea288c40159deb19b4/adventure-text-serializer-gson-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-platform-bukkit/4.3.3/4fa5a2b12f10dc59fe11f1f1e406e44353175593/adventure-platform-bukkit-4.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-nbt/4.17.0/45b1b7064a99cc667b6ff04dc7e4cb58765a98a2/adventure-nbt-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/option/1.0.0/59c5ae54c47ae294322ad979eaf7cdcde7ad0646/option-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/2.0.21/222b2be42672d47c002c1b22ac9f030d781fc5db/kotlin-stdlib-jdk7-2.0.21.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-serializer-bungeecord/4.3.3/b7af0e6d45318dfb1ac2e950ebab37eab3a4ee7a/adventure-text-serializer-bungeecord-4.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/2.0.21/72f75cc23f0756dec50b2dcbeb72561501fb8af9/kotlin-stdlib-jdk8-2.0.21.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/examination-string/1.3.0/6f34afef5c54ccce4996bc321abf77518b55b4bd/examination-string-1.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-serializer-legacy/4.17.0/1f5271e54a4feb6dada26873297337f4b9f2f99a/adventure-text-serializer-legacy-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-platform-api/4.3.3/50847f49cb181fdafd0de37459bbe0fb8b1eb972/adventure-platform-api-4.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-api/4.17.0/e90703097679e9ca0ee8a059bb933aa7d495bce3/adventure-api-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.triumphteam/triumph-cmd-bukkit/2.0.0-SNAPSHOT/fbcecfb5cd8006bcb11ae0961f4bad11827a6a5b/triumph-cmd-bukkit-2.0.0-SNAPSHOT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-platform-viaversion/4.3.3/f88d6816a53f4c3a43f76de0a9ee7cd50f5f397f/adventure-platform-viaversion-4.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.triumphteam/triumph-cmd-core/2.0.0-SNAPSHOT/a68f0a0973a60c67a5dc144e75d084a0be229608/triumph-cmd-core-2.0.0-SNAPSHOT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-platform-facet/4.3.3/be5c9943891ccee0980ac9becb34e50539e42c6b/adventure-platform-facet-4.3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.0.21/618b539767b4899b4660a83006e052b63f1db551/kotlin-stdlib-2.0.21.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/dev.triumphteam/triumph-gui/3.1.10/177ae57299aab3efddb06c1cf67812f80565d9b0/triumph-gui-3.1.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/examination-api/1.3.0/8a2d185275307f1e2ef2adf7152b9a0d1d44c30b/examination-api-1.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-key/4.17.0/799f1b5fedb920a7b71916e9b71123ff94d07acf/adventure-key-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-serializer-json/4.17.0/4651a58fe70ecc8a3682ec7ddd8a516dd6d06a49/adventure-text-serializer-json-4.17.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-serializer-gson-legacy-impl/4.13.1/ab7232cacee5cad54713b6ffea48fbafff4e5d0d/adventure-text-serializer-gson-legacy-impl-4.13.1.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />
+    </root>
+  </artifact>
+</component>
