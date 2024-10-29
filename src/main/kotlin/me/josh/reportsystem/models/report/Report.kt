@@ -3,6 +3,7 @@ package me.josh.reportsystem.models.report
 
 import me.josh.reportsystem.PluginMain
 import me.josh.reportsystem.managers.report.ReportManager
+import me.josh.reportsystem.models.report.util.ReportType
 import org.bukkit.entity.Player
 import java.time.Duration
 import java.time.Instant
@@ -11,8 +12,19 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.UUID
 
-
-class Report(val type: ReportType, val reporter: Player, val reportedPlayer: Player, val reason: String, val date: Long, val id: String) {
+/**
+ * Represents a report submitted by a player against another player in the system.
+ * A report contains details such as the type, reason, reporter, reported player, timestamp, and unique ID.
+ * Additionally, the class provides methods for handling the report's state and formatting the date and time details.
+ *
+ * @param type The type of report (default is PENDING) (see [ReportType])
+ * @param reporter The player who created the report
+ * @param reportedPlayer The player who was reported by `reporter`
+ * @param reason The reason for the report
+ * @param date The timestamp (in milliseconds) when the report was created
+ * @param id The unique identifier for the report
+ */
+data class Report(val type: ReportType, val reporter: Player, val reportedPlayer: Player, val reason: String, val date: Long, val id: String) {
 
     constructor(
         reporter: Player, reportedPlayer: Player, reason: String
@@ -39,6 +51,10 @@ class Report(val type: ReportType, val reporter: Player, val reportedPlayer: Pla
             .format(LocalDateTime.ofInstant(instant, ZoneId.of("UTC")))
     }
 
+    /**
+     * Gets the formatted time since the report was created
+     * @return A formatted string of the time since the report was created
+     */
     fun getFormattedTimeElapsed(): String {
         val dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(date), ZoneId.systemDefault())
         val now = LocalDateTime.now()

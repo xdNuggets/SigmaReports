@@ -7,7 +7,7 @@ import dev.triumphteam.gui.guis.Gui
 import dev.triumphteam.gui.guis.GuiItem
 import dev.triumphteam.gui.guis.PaginatedGui
 import me.josh.reportsystem.gui.Menu
-import me.josh.reportsystem.gui.util.ReportsFilterType
+import me.josh.reportsystem.models.report.util.ReportsFilterType
 import me.josh.reportsystem.models.report.Report
 import me.josh.reportsystem.util.ColorUtil
 import net.kyori.adventure.text.Component

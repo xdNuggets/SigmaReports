@@ -1,4 +1,4 @@
-package me.josh.reportsystem.gui.util
+package me.josh.reportsystem.models.report.util
 
 enum class ReportsFilterType {
 

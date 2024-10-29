@@ -52,7 +52,11 @@ class ColorUtil {
             return color("$prefix $message")
         }
 
-
+        /**
+         * Create a component with colored text
+         * @param text The text to colorize
+         * @return A component with colored text
+         */
         @NotNull
         fun component(text: String) : Component {
             return Component.text(color(text))

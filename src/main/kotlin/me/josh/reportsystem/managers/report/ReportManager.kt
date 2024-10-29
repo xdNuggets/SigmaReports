@@ -1,9 +1,9 @@
 package me.josh.reportsystem.managers.report
 
-import me.josh.reportsystem.gui.util.ReportsFilterType
+import me.josh.reportsystem.models.report.util.ReportsFilterType
 import me.josh.reportsystem.managers.IManager
 import me.josh.reportsystem.models.report.Report
-import me.josh.reportsystem.models.report.ReportType
+import me.josh.reportsystem.models.report.util.ReportType
 import org.bukkit.Bukkit
 import java.util.*
 import kotlin.collections.ArrayList
