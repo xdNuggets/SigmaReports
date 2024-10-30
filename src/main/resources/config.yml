@@ -19,3 +19,13 @@ gui:
 
 reports:
   timezone: UTC
+
+  reason:
+    min_length: 4
+    max_length: 32
+
+
+messages:
+  PREFIX: ""
+  reason_too_long: ""
+  reason_not_long_enough: ""

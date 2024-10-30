@@ -28,7 +28,6 @@ class AllReportsMenu(player: Player) : Menu(player) {
     override fun setItems() {
         gui.setDefaultClickAction {
             event -> event.isCancelled = true
-            gui.updateTitle("Reports (${filters[filterIndex].name})")
             gui.update()
         }
         setBorderItems()

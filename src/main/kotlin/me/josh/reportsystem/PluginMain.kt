@@ -10,6 +10,7 @@ import me.josh.reportsystem.listeners.MenuListener
 import me.josh.reportsystem.managers.SQLManager
 import me.josh.reportsystem.managers.player.PlayerManager
 import me.josh.reportsystem.managers.report.ReportManager
+import org.bukkit.Bukkit
 
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -29,6 +30,14 @@ class PluginMain : JavaPlugin() {
     override fun onEnable() {
         config.options().copyDefaults(true)
         saveDefaultConfig()
+
+
+        // Checks if PlaceholderAPI is present
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null) {
+            logger.warning("Could not find PlaceholderAPI! This plugin is required.")
+            Bukkit.getPluginManager().disablePlugin(this)
+            return
+        }
 
         INSTANCE = this
         val commandManager = BukkitCommandManager.create(this)

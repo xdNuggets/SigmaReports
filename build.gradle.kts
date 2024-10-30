@@ -18,10 +18,12 @@ repositories {
         name = "sonatype"
     }
     maven("https://repo.triumphteam.dev/snapshots/")
+    maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.6")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("dev.triumphteam:triumph-gui:3.1.10")
